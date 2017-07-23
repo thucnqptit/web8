@@ -63,7 +63,7 @@ var update = function(){
     Nakama.player.position.y = - Nakama.player.height/3;
   }
 
-  if(Nakama.keyboard.isDown(Phaser.Keyboard.S)){
+  if(Nakama.keyboard.isDown(Phaser.Keyboard.A)){
     Nakama.player2.position.x -= 10;
   } else if(Nakama.keyboard.isDown(Phaser.Keyboard.D)){
     Nakama.player2.position.x += 10;
