@@ -7,7 +7,8 @@ class ShipController{
     this.configs = configs;
     this.configs.SHIP_SPEED = 400;
     this.sprite.update = this.update.bind(this);
-    this.overheat = false;
+    this.timeToReload = 20;
+    this.time = 20;
   }
   update(){
     if(Nakama.keyboard.isDown(this.configs.left)){
@@ -24,21 +25,15 @@ class ShipController{
     }else{
       this.sprite.body.velocity.y = 0;
     }
-    // setTimeout(function(){
-    //   this.overheat = false;
-    // },500);
-    // console.log(this.overheat);
-
-    // setTimeout(function () {},1000);
-
-    if(Nakama.keyboard.isDown(this.configs.fire) /*&& !this.overheat*/){
+      this.time++;
+    if(Nakama.keyboard.isDown(this.configs.fire) && this.time >= this.timeToReload){
       var imgName = 'BulletType1.png'
       var img = new Image();
       img.src = "../Assets/Original Sprites/" + imgName;
       var y = this.sprite.position.y - img.height;
       var x = this.sprite.position.x + (this.sprite.body.width - img.width)/2;
       var newBullet = new BulletController(x,y,imgName);
-      this.overheat = true;
+      this.time = 0;
     }
 
     // if(this.sprite.position.x > Nakama.configs.GAME_WIDTH - 2*this.sprite.width/3){

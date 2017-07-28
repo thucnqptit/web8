@@ -6,10 +6,7 @@ class BulletController{
     this.sprite.update = this.update.bind(this);
   }
   update(){
-    // if(Nakama.keyboard.isDown(ship.configs.fire)){
-      if(this.sprite.position.y > 0){
-        this.sprite.body.velocity.y = -this.BULLET_SPEED;
-      }
-    // }
+    this.sprite.body.velocity.y = -this.BULLET_SPEED;
+    if (this.sprite.position.y < 0) this.sprite.destroy();
   }
 }
