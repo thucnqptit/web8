@@ -1,7 +1,15 @@
 var Nakama = {};
 Nakama.configs = {
   GAME_WIDTH : 640,
-  GAME_HEIGHT : 960
+  GAME_HEIGHT : 960,
+  P1_START_POSITION : {
+    x: 600,
+    y: 400
+  },
+  P2_START_POSITION : {
+    x: 400,
+    y: 400
+  }
 };
 
 window.onload = function(){
@@ -36,23 +44,33 @@ var create = function(){
   Nakama.keyboard = Nakama.game.input.keyboard;
 
   Nakama.background = Nakama.game.add.sprite(0, - Nakama.configs.GAME_HEIGHT, "background");
+
+  Nakama.bulletGroup = Nakama.game.add.physicsGroup();
+  Nakama.playerGroup = Nakama.game.add.physicsGroup();
+  Nakama.enemyGroup = Nakama.game.add.physicsGroup();
+
   Nakama.players = [];
-  Nakama.players.push (new ShipController(400, 850, "Spaceship1-Player.png",{
+  Nakama.players.push (new ShipType1Controller(200, 850, "-Player",{
     up : Phaser.Keyboard.UP,
     down : Phaser.Keyboard.DOWN,
     left : Phaser.Keyboard.LEFT,
     right : Phaser.Keyboard.RIGHT,
     fire :  Phaser.Keyboard.SPACEBAR
   }));
-Nakama.players.push ( new ShipController(200, 850, "Spaceship1-Partner.png",{
+  Nakama.players.push ( new ShipType2Controller(400,850, "-Partner",{
     up : Phaser.Keyboard.W,
     down : Phaser.Keyboard.S,
     left : Phaser.Keyboard.A,
     right : Phaser.Keyboard.D,
     fire :  Phaser.Keyboard.F
   }));
+  Nakama.enemies =[];
+  Nakama.enemies.push(
+    new EnemyController(320, 100, 'EnemyType1.png',{
+      health : 5
+    })
+  );
 }
-
 // update game state each frame
 var update = function(){
   // for(var player of Nakama.players){
@@ -62,7 +80,17 @@ var update = function(){
   if(Nakama.background.position.y > 0){
     Nakama.background.position.y -= Nakama.background.height - Nakama.configs.GAME_HEIGHT;
   }
+  Nakama.game.physics.arcade.overlap(
+  Nakama.bulletGroup,
+  Nakama.enemyGroup,
+    onBulletHitEnemy // callback
+  );
 }
 
 // before camera render (mostly for debug)
 var render = function(){}
+
+var onBulletHitEnemy = function(bulletSprite, enemySpite) {
+  bulletSprite.kill();
+  enemySpite.damage(1); // this.configs.health -1;
+}
