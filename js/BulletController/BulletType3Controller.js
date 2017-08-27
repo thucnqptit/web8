@@ -7,6 +7,7 @@ class BulletType3Controller extends BulletController {
     this.sprite.rotation = this.configs.angle+Math.PI/2;
   }
   update(){
+    
     this.sprite.body.velocity.x = Math.cos(this.configs.angle) * this.configs.SPEED;
     this.sprite.body.velocity.y = Math.sin(this.configs.angle) * this.configs.SPEED;
   }
