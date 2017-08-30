@@ -1,0 +1,47 @@
+body{
+  margin: 0;
+}
+.menu{
+  background: #D5B0AC;
+  font-weight: bold;
+  text-align: center;
+  position: fixed;
+  width: inherit;
+  margin-top: -50px;
+}
+.menu span{
+  color: #402E2A;
+  display: inline-flex;
+  height: 30px;
+  width: 100px;
+  align-items : center;
+  justify-content: center;
+}
+.menu span:hover{
+  background: #9CD08F;
+  color: #fff;
+  cursor: pointer;
+}
+.menu_vertical{
+  display: inline-grid;
+}
+.menu_vertical span{
+  border-bottom: 1px solid white;
+}
+.menu_vertical span:last-child{
+  border-bottom: none;
+}
+body{
+  margin: auto;
+  width: 1000px;
+  background: #f0f0f0;
+}
+li{
+  list-style: square;
+}
+.main-content{
+  margin-top: 50px;
+}
+.active{
+  background: #9CD08F;
+}
