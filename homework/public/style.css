@@ -5,9 +5,9 @@ body{
   background: #D5B0AC;
   font-weight: bold;
   text-align: center;
-  position: fixed;
+  /*position: fixed;*/
   width: inherit;
-  margin-top: -50px;
+  /*margin-top: -20px;*/
 }
 .menu span{
   color: #402E2A;
