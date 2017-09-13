@@ -26,7 +26,7 @@ Router.post('/question/:id', (req, res) => {
   listQuestion = fileController.getQuestions(filename);
   for (i=0;i<listQuestion.length;i++) {
     if (req.params.id == listQuestion[i].id) {
-      if (req.body.choice === 'yes') {
+      if (req.body.choice === 'Đúng/có/phải') {
         listQuestion[i].yes += 1;
       } else {
         listQuestion[i].no += 1;

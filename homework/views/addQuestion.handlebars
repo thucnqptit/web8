@@ -1,4 +1,12 @@
+<h2>Hãy hỏi cộng đồng một câu hỏi đúng/sai hoặc có/không</h2>
 <form method="post" action="/api/question">
-  <input class="input-box" type="text" name="question" />
-  <input type="submit" value="Ask"/>
+  <textarea class="input-box col-xs-12 form-control" rows="5" type="text" name="question" id="textarea" maxlength="200"></textarea>
+  <span id="count" class="fleft">Còn 200/200 ký tự</span>
+  <div class="clr"><div>
+  <input class="btn btn-primary fleft" type="submit" value="Gửi"/>
 </form>
+<script>
+  document.getElementById('textarea').onkeyup = function () {
+  document.getElementById('count').innerHTML = "Còn " + (200 - this.value.length + "/200 ký tự");
+  };
+</script>

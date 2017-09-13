@@ -10,6 +10,7 @@ body{
   /*margin-top: -20px;*/
 }
 .menu span{
+  position: relative;
   color: #402E2A;
   display: inline-flex;
   height: 30px;
@@ -19,8 +20,11 @@ body{
 }
 .menu span:hover{
   background: #9CD08F;
-  color: #fff;
+  color: #ffffff;
   cursor: pointer;
+}
+.menu span:hover a{
+  color: #fffff;
 }
 .menu_vertical{
   display: inline-grid;
@@ -31,37 +35,35 @@ body{
 .menu_vertical span:last-child{
   border-bottom: none;
 }
-
 body{
-  /*margin: auto;
-  width: 1000px;*/
+  margin: auto;
+  width: 1000px;
   background: #f0f0f0;
 }
 li{
   list-style: square;
 }
-.main-content{
-  margin-top: 50px;
-}
 .active{
   background: #9CD08F;
 }
-.content{
-  width: inherit;
-  text-align: center;
-}
-.fleft{
-  float: left;
-}
-.clr{
-  clear: both;
-}
-#count{
-  color: #9a9898;
-}
-#result{
+.menu_2{
   display: none;
+  /*display: block;*/
+  position: absolute;
+  top: 30px;
 }
-#result li{
-  list-style: none;
+/*span{
+  position: relative;
+}*/
+span:hover .menu_2{
+  display: inline-grid;
+}
+.menu .menu_2 .menu_3{
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 100%;
+}
+.menu_2 span:hover .menu_3{
+  display: inline-grid;
 }

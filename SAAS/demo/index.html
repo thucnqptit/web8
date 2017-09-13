@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Horizontal menu and vertical menu</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <nav class="menu">
+      <span>
+        <a>
+          Item 1.1</a>
+          <nav class="menu menu_vertical menu_2">
+            <span>
+              <a href="#">
+                Item 2.1</a>
+                <nav class="menu menu_vertical menu_3">
+                  <span><a href="#">Item 3.1a</a></span>
+                  <span><a href="#">Item 3.2</a></span>
+                  <span><a href="#">Item 3.3</a></span>
+                </nav>
+
+            </span>
+            <span>
+              <a href="#">
+                Item 2.2</a>
+                <nav class="menu menu_vertical menu_3">
+                  <span><a href="#">Item 3.1b</a></span>
+                  <span><a href="#">Item 3.2</a></span>
+                  <span><a href="#">Item 3.3</a></span>
+                </nav>
+
+            </span>
+            <span><a href="#">Item 2.3</a>
+               <nav class="menu menu_vertical menu_3">
+                <span><a href="#">Item 3.1c</a></span>
+                <span><a href="#">Item 3.2</a></span>
+                <span><a href="#">Item 3.3</a></span>
+               </nav>
+            </span>
+
+          </nav>
+
+      </span>
+      <span><a href="#">Item 1.2</a></span>
+      <span><a href="#">Item 1.3</a>
+        <nav class="menu menu_vertical menu_2">
+          <span><a href="#">Item 2.1</a>
+            <nav class="menu menu_vertical menu_3">
+              <span><a href="#">Item 3.1</a></span>
+              <span><a href="#">Item 3.2</a></span>
+              <span><a href="#">Item 3.3</a></span>
+            </nav>
+          </span>
+          <span><a href="#">Item 2.2</a></span>
+          <span><a href="#">Item 2.3</a>
+            <nav class="menu menu_vertical menu_3">
+             <span><a href="#">Item 3.1c</a></span>
+             <span><a href="#">Item 3.2</a></span>
+             <span><a href="#">Item 3.3</a></span>
+            </nav>
+          </span>
+        </nav>
+      </span>
+    </nav>
+  </body>
+</html>

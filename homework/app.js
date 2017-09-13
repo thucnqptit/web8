@@ -13,9 +13,9 @@ app.use(bodyParser.urlencoded({ extend : true }));
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-app.get('/style.css',(req, res) => {
-  res.sendFile(__dirname + '/public/style.css');
-});
+// app.get('/style.css',(req, res) => {
+//   res.sendFile(__dirname + '/public/style.css');
+// });
 
 app.use('/', homeRouter);
 app.use('/ask', askRouter);
@@ -30,7 +30,7 @@ app.get('/about',(req, res) => {
   });
 });
 
-//app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.listen(6969, () => {
   console.log('Magical in port 6969');

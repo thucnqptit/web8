@@ -26,12 +26,12 @@ Router.get('/:id', (req, res) => {
       noNum = listQuestion[i].no;
     }
   }
-  console.log("question");
-  res.render('getQuestion',
+  res.render('home',
   {
     question,
     yesNum,
-    noNum
+    noNum,
+    link : "/question/" + req.params.id
   });
 });
 

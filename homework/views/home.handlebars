@@ -1,5 +1,27 @@
 <h2>{{{question}}}</h2>
-<form method="post" action="{{{link}}}">
-  <input type="submit" name="choice" value="Yes">
-  <input type="submit" name="choice" value="No">
+<div class="row">
+<form method="post" action="{{{link}}}" class="myform">
+  <div class="col-md-2 col-xs-0"></div>
+  <input type="submit" name="choice" value="Sai/không/trái" class="btn btn-danger col-md-2 col-xs-5">
+  <div class="col-md-4 col-xs-2"></div>
+  <input type="submit" name="choice" value="Đúng/có/phải" class="btn btn-primary col-md-2 col-xs-5">
+  <div class="col-md-2 col-xs-0"></div>
 </form>
+</div>
+<div class="row">
+  <div class="btn btn-default" onClick="showResult()" >Kết quả vote</div>
+    <a href="/"><div class="btn btn-default">Câu hỏi khác</div></a>
+    <ul id="result">
+    <li>Number of yes ans: {{{yesNum}}}</li>
+    <li>Number of no ans: {{{noNum}}}</li>
+  </ul>
+<div>
+  <script>
+  var showResult = function () {
+    if(document.getElementById('result').style.display == 'block') {
+      document.getElementById('result').style.display= 'none';
+    } else{
+      document.getElementById('result').style.display= 'block';
+    }
+  }
+  </script>
